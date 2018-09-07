@@ -1,0 +1,51 @@
+import json
+import urllib2
+import random
+import datetime
+#
+url = "http://ergast.com/api/f1/2004/1/results.json"
+r = urllib2.urlopen(url)
+resp1 = json.load(r)
+mrdata = resp1['MRData']['RaceTable']['Races'][0]['Results']
+points = []
+for racers in mrdata:
+    driver_name = racers['Driver']['driverId']
+    driver_name = str(driver_name)
+    # print driver_name
+    # d1 = (json.dumps(driver_name))
+    # d1 = str(d1)
+    # print type(d1)
+    points.append(driver_name)
+    points.sort()
+
+def racers_details():
+    """ To print the driver name"""
+    print points
+    no_of_drivers = len(points)
+    print 'Total number is drivers are {}'.format(no_of_drivers)
+    for index, driver in enumerate(points, start=1):
+        message = '{} The driver is {}'.format(index, driver)
+        print message
+
+def random_pick():
+    """ To find the random draw of drivers """
+    random_driver = random.choice(points)
+    today = datetime.date.today()
+    print 'Lucky draw driver is {} as on {}'.format(random_driver.upper(), today)
+
+def top_speed():
+    """ To find speedest"""
+    speeder = []
+    for speed in mrdata:
+        speedest = speed['FastestLap']['AverageSpeed']['speed']
+        speed_float = float(speedest)
+        #print type(speed_float)
+        speeder.append(speed_float)
+    speeder.sort()
+    print speeder
+
+
+#racers_details()
+#print "##################"
+#random_pick()
+top_speed()
