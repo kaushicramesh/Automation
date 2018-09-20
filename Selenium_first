@@ -1,0 +1,86 @@
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+driver = webdriver.Chrome("/Applications/chromedriver")
+from selenium.webdriver.support import expected_conditions as EC
+
+driver.maximize_window()
+driver.get("https://login.xfinity.com/")
+
+
+driver.implicitly_wait(30)
+
+#driver.switch_to_frame("polarisIframe")from selenium import webdriver
+
+driver = webdriver.Chrome("/Applications/chromedriver")
+#print "driver started"
+#driver.get("https://www.xfinity.com/stream/")
+#print driver.page_source()
+#ids = driver.find_elements_by_class_name('//@class_name')
+#print ids
+#driver.implicitly_wait(20)
+#driver.find_element_by_name("email").click()
+#print "rev"
+
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+user = ""
+pwd = ""
+#driver = webdriver.Firefox()
+driver.get("https://www.facebook.com/")
+#assert "Facebook" in driver.title
+driver.implicitly_wait(10)
+driver.maximize_window()
+elem = driver.find_element_by_name("firstname")
+elem.send_keys("kaushic")
+elem = driver.find_element_by_name("lastname")
+elem.send_keys("ramesh")
+elem = driver.find_element_by_name("reg_email__")
+elem.send_keys("978353553")
+elem = driver.find_element_by_name("reg_passwd__")
+elem.send_keys("password")
+driver.find_element_by_xpath('//*[@id="u_0_9"]').click()
+radio2 = driver.find_element_by_xpath('//*[@id="u_0_a"]')
+
+driver.find_element_by_name("websubmit").click()
+#iframes = driver.find_element_by_tag_name("iframe")
+#lem = driver.find_element_by_xpath('//*[@id="guide-icon"]').click()
+
+
+
+#driver.switch_to_frame(iframes)
+#driver.implicitly_wait(20)
+#driver.find_element_by_xpath('//*[@id="button"]/yt-icon').click()
+# elem.send_keys("kaushic")
+# elem = driver.find_element_by_name("lastname")
+# elem.send_keys("ramesh")
+# elem = driver.find_element_by_name("reg_email__")
+# elem.send_keys("978353553")
+# elem = driver.find_element_by_name("reg_passwd__")
+# elem.send_keys("password")
+# driver.find_element_by_value("2").click()
+#
+# driver.find_element_by_name("websubmit").click()
+
+
+elem = driver.find_element_by_id("user")
+elem.send_keys("x1_automation_04")
+elem = driver.find_element_by_id("passwd")
+elem.send_keys("HomePlot9")
+driver.find_element_by_id("sign_in").click()
+print "before wait"
+
+#driver.set_page_load_timeout(40)
+#driver.implicitly_wait(30)
+
+driver.find_element_by_name("xfinity stream").click()
+print "before wait2"
+wait = WebDriverWait(driver, 40)
+element = wait.until(EC.title_contains("xfinity"))
+
+#driver.implicitly_wait(50)
+print "loading screen"
+#driver.set_page_load_timeout(40)
+#driver.find_element_by_xpath('/html/body/section/a/img')
+#driver.implicitly_wait(30)
+#driver.find_element_by_xpath('//*[@id="content"]/div/div[2]/tv-button/button').click()
+
