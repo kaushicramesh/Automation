@@ -1,0 +1,13 @@
+from appium import webdriver
+desired_caps ={}
+desired_caps['platformName'] = 'iOS'
+desired_caps['platformVersion'] = '12.0'
+desired_caps['deviceName'] = 'iPhone 6'
+desired_caps['appiumVersion'] = '1.9'
+desired_caps['udid'] = '4784ce4a662ed659e0fbbcbc5a46e13cb81dfb7b'
+desired_caps['app'] = 'sauce-storage:miapp'
+#desired_caps['app'] = 'https://saucelabs.com/rest/v1/storage/kaushic/MIApp.ipa'
+#desired_caps['appName'] = 'MIApp'
+
+driver = webdriver.Remote('http://kaushic:cc405924-42b9-42e9-b3ca-ece48bcadda1@ondemand.saucelabs.com:80/wd/hub', desired_caps)
+driver.quit()
